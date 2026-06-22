@@ -71,6 +71,11 @@ if uploaded_file is not None:
         for col_name in all_columns:
             st.session_state[f"chk_{col_name}"] = False
 
+    # Initialize checkbox state for any column not yet tracked
+    for col_name in all_columns:
+        if f"chk_{col_name}" not in st.session_state:
+            st.session_state[f"chk_{col_name}"] = True
+
     # Display columns in a 4-column grid with checkboxes
     num_cols_per_row = 4
     rows = [all_columns[i:i+num_cols_per_row] for i in range(0, len(all_columns), num_cols_per_row)]
@@ -79,8 +84,7 @@ if uploaded_file is not None:
     for row in rows:
         cols = st.columns(num_cols_per_row)
         for i, col_name in enumerate(row):
-            default = col_name in st.session_state.selected_columns
-            if cols[i].checkbox(col_name, value=default, key=f"chk_{col_name}"):
+            if cols[i].checkbox(col_name, key=f"chk_{col_name}"):
                 selected.append(col_name)
 
     st.session_state.selected_columns = selected
