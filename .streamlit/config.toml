@@ -1,6 +1,13 @@
 [server]
 maxUploadSize = 3000
 
+[client]
+showErrorDetails = false
+toolbarMode = "minimal"
+
+[runner]
+fastReruns = true
+
 [theme]
 primaryColor = "#0066CC"
 backgroundColor = "#FFFFFF"
