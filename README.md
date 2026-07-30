@@ -1,6 +1,6 @@
-# 🧹 CSV Cleanup Tool
+# 🚀 IngestReady
 
-A simple web app to upload a CSV file, trim rows, pick columns, search your data, and download a clean file.
+A simple web app to trim, clean, and prepare CSV files for ingestion into Data360.
 
 **Online version:** [Open in browser](https://cvs-clean-up.streamlit.app)
 

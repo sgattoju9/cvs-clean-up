@@ -4,18 +4,18 @@ import io
 import os
 
 st.set_page_config(
-    page_title="CSV Cleanup Tool",
-    page_icon="🧹",
+    page_title="IngestReady",
+    page_icon="🚀",
     layout="wide"
 )
 
-st.title("🧹 CSV Cleanup Tool")
-st.markdown("Upload a CSV, trim rows, pick columns, and download a clean file in CSV or JSON format.")
+st.title("🚀 IngestReady")
+st.markdown("Trim, clean, and prepare your CSV files for ingestion into Data360.")
 
 st.info(
     "**Working with a file larger than 200 MB?** "
     "This web app may be slow or crash with very large files. "
-    "For big files, download the app and run it on your own machine — it handles any size with no limits.  \n"
+    "For big files, download IngestReady and run it on your own machine — no file size limits.  \n"
     "👉 [Download the desktop version](https://github.com/sgattoju9/cvs-clean-up/archive/refs/heads/main.zip)"
 )
 
@@ -172,9 +172,65 @@ else:
         1. **Upload** your CSV file
         2. **Choose rows** — enter how many rows to keep
         3. **Choose columns** — check/uncheck the columns you want
-        4. **Filter** — optionally type a plain-English question to narrow down rows
+        4. **Filter** — optionally type a keyword to narrow down rows
         5. **Download** as CSV or JSON
 
         > **Large files (200MB+):** Run this app locally on your machine for best performance.
-        > Ask your admin for the local setup instructions.
+        > See the setup guide below.
+        """)
+
+    with st.expander("💻 How to run this app on your own computer (step-by-step)"):
+        st.markdown("""
+        You can run this tool on your own machine — no internet needed, no file size limits.
+        Follow these steps:
+
+        ---
+
+        ### Step 1 — Check if Python is installed
+        Open a **Terminal** (Mac/Linux) or **Command Prompt** (Windows) and type:
+        ```
+        python --version
+        ```
+        If you see something like `Python 3.10.x`, you're good. If you get an error, continue to Step 2.
+
+        ---
+
+        ### Step 2 — Install Python (only if needed)
+        - Go to **https://www.python.org/downloads/**
+        - Download the latest version for your operating system
+        - Run the installer. **On Windows**, check the box that says **"Add Python to PATH"** before clicking Install
+
+        ---
+
+        ### Step 3 — Download this app
+        - Click this link to download: [Download ZIP](https://github.com/sgattoju9/cvs-clean-up/archive/refs/heads/main.zip)
+        - Unzip the downloaded file to a folder on your computer (e.g. your Desktop)
+
+        ---
+
+        ### Step 4 — Install the required packages
+        In your Terminal / Command Prompt, navigate to the folder where you unzipped the app:
+        ```
+        cd path/to/csv-cleanup-tool
+        ```
+        Then run:
+        ```
+        pip install -r requirements.txt
+        ```
+        This installs Streamlit and pandas — the only two packages needed.
+
+        ---
+
+        ### Step 5 — Run the app
+        ```
+        streamlit run app.py
+        ```
+        Your browser will open automatically at **http://localhost:8501**
+
+        ---
+
+        **Having trouble?** Common fixes:
+        - If `pip` is not found, try `pip3` instead
+        - If `streamlit` is not found after installing, close and reopen your Terminal
+        - On Windows, run Command Prompt **as Administrator** if you get permission errors
         """)
